@@ -64,7 +64,6 @@ jobs:
           username: ${{ secrets.SERVER_USER_NAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           privateKey: ${{ secrets.SERVER_KEY }}
-          agent: ${{ secrets.SERVER_AGENT }}
           localPath: '.'
           remotePath: ${{ secrets.SERVER_REMOTE_PATH }}
 
