@@ -1,0 +1,684 @@
+/* ------------------------- Styleguide GBS -------------------------------------------------- */
+
+/* ------------------------- Fonts -------------------------------------------------- */
+
+@font-face {
+  font-family: "Montserrat, ExtraBold";
+  src: url("../assets/fonts/Montserrat-ExtraBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat, Bold";
+  src: url("../assets/fonts/Montserrat-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat, SemiBold";
+  src: url("../assets/fonts/Montserrat-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat, Medium";
+  src: url("../assets/fonts/Montserrat-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat, Regular";
+  src: url("../assets/fonts/Montserrat-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ACaslonPro, Italic";
+  src: url("../assets/fonts/ACaslonPro-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ACaslonPro, Regular";
+  src: url("../assets/fonts/ACaslonPro-Regular.otf") format("opentype");
+}
+
+/* ------------------------- Colors -------------------------------------------------- */
+
+:root {
+  --black-color: #231f20;
+  --black-lighter-color: #191919;
+  --main-color: #ef4436;
+  --secondary-color: #ed1c24;
+  --blue-color: #0e3aa8;
+  --grey-color: #777777;
+  --white-color: #ffffff;
+  --light-white-color: #ffffff12;
+
+  --bg-blur: rgba(255, 255, 255, 0.16);
+  --bg-blur-darker: rgba(25, 25, 40, 0.94);
+  --transparent-color: rgba(0, 0, 0, 0);
+
+  --alert-failed-color: #c91313;
+
+  --small-gap: 1em;
+  --general-gap: min(4vw, 4em);
+  --big-gap: 7em;
+
+  --section-padding: min(3vw, 3em);
+  --section-padding-medium: min(2vw, 2em);
+  --section-padding-small: min(1vw, 1em);
+  --container-padding: clamp(2.5em, 6vw, 8em);
+  --gap-padding: clamp(1.5em, 4vw, 2.5em);
+
+  --title-size: max(5em, 7.5vw);
+  --fast-transition: 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  --g-transition: 0.5s cubic-bezier(0.6, 0.6, 0, 1);
+  --smooth-transition: 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+  --slow-transition: 1s cubic-bezier(0.76, 0, 0.24, 1);
+  --border-radius: clamp(0.5em, 0.5vw, 0.5em);
+}
+
+@media only screen and (max-width: 1024px) {
+  :root {
+    --container-padding: 6vw;
+    --section-padding: 10vw;
+    --section-padding-medium: 7vw;
+    --section-padding-small: 4vw;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  :root {
+    --container-padding: min(2vw, 2em);
+    --section-padding: 7vw;
+    --section-padding-medium: 3vw;
+    --section-padding-small: 2vw;
+  }
+}
+
+/* ------------------------- Body -------------------------------------------------- */
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color) var(--transparent-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--black-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+li,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: "Montserrat, Regular", sans-serif;
+  color: var(--black-color);
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  font-size: clamp(16px, 1.2vw, 19px);
+  background-color: var(--white-color);
+
+  overflow-x: hidden;
+}
+
+/* preload */
+body.loading {
+	overflow: hidden;
+	height: 100vh;
+	cursor: wait;
+}
+body.loading.removePreloader {
+	overflow: auto;
+	overflow-x: hidden;
+	height: auto;
+	cursor: default;
+}
+
+@media only screen and (max-width: 1024px) {
+	body.loading.removePreloader {
+		overflow: auto;
+		overflow-x: hidden;
+	}
+}
+
+html {
+  scroll-behavior: initial;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Selection */
+::selection {
+  background-color: transparent;
+  color: var(--main-color);
+  text-shadow: none;
+  pointer-events: fill;
+}
+
+::-moz-selection {
+  background-color: transparent;
+  color: var(--main-color);
+  text-shadow: none;
+  pointer-events: fill;
+}
+
+canvas,
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+svg {
+  max-width: none;
+  height: auto;
+  box-sizing: border-box;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+img,
+a,
+.hamburger,
+.select {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    scroll-behavior: smooth !important;
+  }
+}
+
+/* ------------------------- Typography -------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+ul,
+ol,
+span,
+strong,
+em {
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+  font-weight: 450;
+  letter-spacing: normal;
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+p:last-child,
+p.big:last-child,
+p.small:last-child,
+a:last-child,
+strong:last-child {
+  margin-bottom: 0;
+}
+
+h1 {
+  line-height: 1.265;
+  font-size: calc(clamp(2em, 5vw, 6em) * 1.1);
+}
+
+h2 {
+  font-size: calc(clamp(2em, 5vw, 4.5em) * 0.75);
+  line-height: 1.065;
+}
+
+h2.bigger-desc {
+  font-size: calc(clamp(4em, 9vw, 9em) * 0.7);
+  line-height: 0.8;
+}
+
+h3 {
+  font-size: clamp(1.45em, 3vw, 3em);
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: clamp(1.1em, 1.5vw, 1.5em);
+  line-height: 1.25;
+}
+
+h5 {
+  font-size: 1.1em;
+  line-height: 1.4;
+  letter-spacing: 0.063em;
+}
+
+h6 {
+  font-size: 0.8em;
+  line-height: 1.065;
+  letter-spacing: 0.063em;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--black-color);
+  font-family: "Montserrat, ExtraBold", sans-serif;
+  margin-top: 0;
+  margin-bottom: 1em;
+  letter-spacing: -1px;
+}
+
+h4,
+h5,
+h6 {
+  color: var(--black-color);
+  font-family: "Montserrat, Bold", sans-serif;
+  text-transform: inherit;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h4.general-subheading {
+  text-transform: inherit;
+}
+
+p {
+  font-family: "Montserrat, Regular", sans-serif;
+  font-size: 1em;
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+p.small {
+  font-size: 0.8em;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+}
+
+p.big {
+  font-size: 1.2em;
+  /* font-size: calc(clamp(1.25em, 1.55vw, 1.5em) * 1.1); */
+  line-height: 1.35;
+}
+
+strong {
+  font-weight: 800;
+}
+
+a {
+  color: var(--black-color);
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ------------------------- Main Elements -------------------------------------------------- */
+
+.section,
+.subsection {
+  position: relative;
+  display: block;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.section.s-padding {
+  padding-top: calc(var(--section-padding) / 2);
+  padding-bottom: calc(var(--section-padding) / 2);
+}
+
+.section.no-padding {
+  padding-top: unset;
+  padding-bottom: unset;
+}
+
+.section.full-height {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.container.full-width {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.default-header {
+  padding-top: calc(var(--section-padding) * 1.33);
+  padding-bottom: calc(var(--section-padding) * 0.66);
+}
+
+.container {
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  max-width: 100em;
+  max-width: 100%;
+}
+
+.container.large {
+  padding-left: calc(var(--gap-padding) / 2);
+  padding-right: calc(var(--gap-padding) / 2);
+}
+
+.container.medium {
+  padding-left: calc(var(--container-padding) * 2);
+  padding-right: calc(var(--container-padding) * 2);
+}
+
+.container.small {
+  padding-left: calc(var(--container-padding) * 3);
+  padding-right: calc(var(--container-padding) * 3);
+}
+
+.container.no-padding {
+  padding-left: unset;
+  padding-right: unset;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+@media only screen and (min-width: 1025px) {
+  .row.column-wrap [class*="col-"]:first-child {
+    padding-right: 5em;
+  }
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.column-parent {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+@media (max-width: 800px) {
+  .column-parent {
+    flex-direction: column;
+  }
+}
+
+.column-center {
+  display: grid;
+  /* justify-content: center; */
+  align-content: center;
+}
+
+/* General - Create two equal columns that floats next to each other */
+[class*="col-"] {
+  float: left;
+  /* padding: 10px; */
+}
+
+/* For desktop: */
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+[class*="col-"].no-padding {
+  padding: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+    padding: 0.5em 0;
+  }
+}
+
+/* ipad/tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+/* ------------------------- Buttons -------------------------------------------------- */
+
+.hero-btn-wrapper {
+  padding-top: 1em;
+}
+
+.btn-link {
+  position: relative;
+}
+
+.hero-banner .btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-0.1em);
+}
+
+.btn-icon svg,
+.btn-icon svg path {
+  transition: var(--fast-transition);
+}
+
+.hero-banner .default-btn .btn-link:hover .btn-icon svg {
+  transform: translateY(0.2em) scale(0.9);
+}
+
+.hero-banner .default-btn .btn-link:hover .btn-icon svg path.arrow {
+  transform: translateY(0.2em);
+}
+
+path.element-01 {
+  animation: polygon-stroke 2s linear infinite;
+}
+
+path.element-02 {
+  animation: polygon-stroke 4s linear infinite;
+}
+
+path.element-03 {
+  animation: polygon-stroke 6s linear infinite;
+}
+
+/* keyframes change stroke color polygon */
+@keyframes polygon-stroke {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.default-btn {
+  position: relative;
+  border: 0;
+  background: transparent;
+}
+
+.default-btn .btn-link {
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--small-gap);
+  position: relative;
+  /* padding: 1em 0; */
+}
+
+.default-btn.secondary-btn .btn-link {
+  padding-bottom: 0.01em;
+  border-bottom: 1px solid var(--black-color);
+}
+
+.default-btn.main-btn .btn-link .inner-btn-text,
+.default-btn .btn-link .btn-text {
+  transition: var(--smooth-transition);
+  font-family: "Montserrat, Medium", sans-serif;
+  font-size: 0.9em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* disabled load more */
+.default-btn.secondary-btn .btn-link.disabled {
+  opacity: 0.7;
+  border-bottom: 1px solid var(--transparent-color);
+  cursor: not-allowed;
+}
+
+/* scroll down */
+.hero-banner .scroll-down .default-btn.main-btn .btn-link {
+  gap: var(--small-gap);
+  flex-direction: column-reverse;
+  padding-top: 1em;
+}
+
+.hero-banner .scroll-down .default-btn.main-btn .btn-link .btn-text {
+  padding: 0;
+}
+
+/* hover effect */
+.btn-text {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+}
+
+.btn-text span {
+  display: inline-flex;
+  transition: transform var(--fast-transition);
+}
+
+.btn-text::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.cards-wrap:hover .default-btn.main-btn svg path {
+  transform: translate(0.5em, -0.3em) scale(0.8);
+}
+
+/* @media (hover: hover) {} */
+
+@media only screen and (max-width: 1024px) {
+  .default-btn.main-btn .btn-link .inner-btn-text,
+  .default-btn.secondary-btn .btn-link .inner-btn-text {
+    font-size: 0.95em;
+  }
+}
