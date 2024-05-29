@@ -102,7 +102,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Environment: UAT v1\Package: ${{ needs.package.result }}${{ env.download }}"
+                    "text": "Environment: UAT v1\nPackage: ${{ needs.package.result }}${{ env.download }}"
                   }
                 },
                 {
