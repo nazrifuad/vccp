@@ -80,7 +80,7 @@ jobs:
     steps:
       - name: Set preview link
         if: ${{ needs.package.result == 'success' }}
-        run: echo "download= > ${{ vars.DOWNLOAD_UAT }}" >> $GITHUB_ENV
+        run: echo "download= > ${{ vars.DOWNLOAD_UAT }}${{ env.package }}" >> $GITHUB_ENV
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.22.0
