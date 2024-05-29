@@ -870,9 +870,9 @@ function initLoadMore() {
   $(document).ready(function () {
     function showInitialResults() {
       if (window.matchMedia("(min-width: 1500px)").matches) {
-        return 8;
+        return 4;
       }
-      return 4;
+      return 8;
     }
 
     function loadMoreResults() {
@@ -1128,23 +1128,22 @@ function initPreloader(callback) {
   // Animate the other images to appear at random positions
   images.forEach((image, index) => {
     if (index !== 0) {
-      // define boundaries for random positions
-      const minX = image.width; // minimum X position from the left edge
-      const maxX = window.innerWidth - image.width; // maximum X position from the right edge
-      const minY = 0; // minimum Y position from the top edge
-      const maxY = window.innerHeight - image.height; // maximum Y position from the bottom edge
+      // // define boundaries for random positions
+      // const minX = image.width; // minimum X position from the left edge
+      // const maxX = window.innerWidth - image.width; // maximum X position from the right edge
+      // const minY = 0; // minimum Y position from the top edge
+      // const maxY = window.innerHeight - image.height; // maximum Y position from the bottom edge
 
-      // generate random positions within defined boundaries
-      const randomX = Math.random() * (maxX - minX) + minX;
-      const randomY = Math.random() * (maxY - minY) + minY;
+      // // generate random positions within defined boundaries
+      // const randomX = Math.random() * (maxX - minX) + minX;
+      // const randomY = Math.random() * (maxY - minY) + minY;
 
       // animate the image
       tl.fromTo(
         image,
-        { x: randomX, y: randomY, scale: 0.5, opacity: 0 },
+        {  scale: 0.5, opacity: 0 },
         {
-          x: randomX,
-          y: randomY,
+
           scale: 1,
           opacity: 1,
           duration: 0.5,
@@ -1155,6 +1154,7 @@ function initPreloader(callback) {
     }
   });
 
+  
   // Continue with the rest of the preloader animations
   tl.to(
     ".preload-image.normal",
