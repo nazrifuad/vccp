@@ -116,11 +116,12 @@
 
 .preloader-wrapper .subheading p,
 .hero-title-wrap .subheading p {
-  font-family: "ACaslonPro, Regular", sans-serif;
+  font-family: "Montserrat, Regular", sans-serif!important;
 }
 
 /* hero title */
-.hero-title-wrap {
+.hero-title-wrap,
+.desc-wrap {
   position: relative;
   z-index: 3;
 }
@@ -759,7 +760,7 @@ html.lenis {
     content: "";
     position: absolute;
     top: 0;
-    left: 48.65%;
+    left: 50.55%;
     width: 0.1em;
     height: 100%;
     background-color: var(--black-color);
@@ -1294,6 +1295,16 @@ select {
   background-color: var(--white-color);
 }
 
+.cards-desc-wrap.red{
+  color: var(--white-color);
+  background-color: var(--main-color);
+}
+
+.cards-desc-wrap.red h4,
+.cards-desc-wrap.red p{
+  color: var(--white-color)!important;
+}
+
 .other-stories-card-wrap {
   height: 220px;
 }
@@ -1336,8 +1347,12 @@ select {
   .cards-desc-wrap {
     position: relative;
     padding: 0.8em;
+    
   }
 
+  .swiper-slide .cards-desc-wrap{
+    height: 170px;
+  }
   .cards-title {
     display: flex;
     align-items: center;
@@ -1358,7 +1373,7 @@ select {
   }
 }
 
-@media only screen and (max-width: 407px) {
+@media only screen and (max-width: 443px) {
   .cards-date-wrapper p.small {
     font-size: 0.6em !important;
   }
@@ -2118,8 +2133,13 @@ header.header-scrolled .middle-navbar svg {
   color: var(--white-color);
 }
 
+.overlay.desc-wrap.animating{
+  opacity: 1;
+  transition: var(--slow-transition);
+}
 /* logo */
 /* hero title */
+/* hero subdesc  */
 .overlay.logo-hero-wrap {
   top: 50%;
   left: 49.5%;
@@ -2138,7 +2158,7 @@ header.header-scrolled .middle-navbar svg {
 
 .overlay.hero-title-wrap.animating {
   height: unset;
-  top: 40%;
+  top: 35%;
 }
 
 .overlay.logo-hero-wrap .logo {
@@ -2154,6 +2174,78 @@ header.header-scrolled .middle-navbar svg {
   fill: var(--white-color);
 }
 
+.overlay.desc-wrap{
+  height: unset;
+  top: 75%;
+  opacity: 0;
+}
+
+.overlay.desc-wrap.animating{
+  opacity: 1;
+  transition: var(--fast-transition);
+}
+
+.overlay.desc-wrap .sub-description{
+  font-family: "Montserrat, Medium";
+  width: 40%;
+  margin: 0 auto;
+}
+
+.overlay.desc-wrap .sub-description p{
+  font-size: 1em!important;
+}
+
+.overlay.hero-title-wrap .title .item.mobile{
+  display: none;
+}
+ @media only screen and (max-width: 767px) {
+    .overlay.desc-wrap .sub-description{
+      width: 100%;
+      padding: 0 11px;
+     }
+  
+     /* .overlay.desc-wrap{
+      top: 70%;
+    } */
+    .overlay.hero-title-wrap .title h2{
+      font-size: calc(clamp(6em, 9vw, 9em) * 0.7);
+    }
+    
+    .overlay.hero-title-wrap .title{
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .overlay.hero-title-wrap .title .item.desktop{
+      display: none;
+    }
+
+    .overlay.hero-title-wrap .title .item.mobile{
+      display: block;
+    }
+    .overlay.hero-title-wrap .title h2.every{
+      text-align: right;
+      padding-right: .45em;
+    }
+    .overlay.hero-title-wrap .title h2.shade{
+      text-align: left;
+    }
+
+    .hero-title-wrap .inline-title{
+      padding-left: 3.5em;
+      gap: 2.5em!important;
+    }
+
+    .hero-title-wrap .inline-title h3{
+      font-size: clamp(2.45em, 3vw, 3em);
+    }
+    .overlay.hero-title-wrap .subheading{
+      max-width: 280px;
+      text-align: left;
+      margin: 0 auto;
+      padding-left: 2em;
+    }
+
+}
 
 .swiper-slide.hero-slider-item {
   position: relative;
@@ -2278,9 +2370,15 @@ header.header-scrolled .middle-navbar svg {
   }
 }
 
+@media only screen and (max-width: 380px) {
+  .swiper.hero-swiper {
+    height: 70vh;
+  }
+}
+
 @media only screen and (max-width: 1023px) {
   .overlay.logo-hero-wrap .logo svg {
-    width: 9em;
+    width: 8em;
   }
 }
 
@@ -2603,7 +2701,8 @@ header.header-scrolled .middle-navbar svg {
   font-size: clamp(1.2em, 1.35vw, 1.2em);
 }
 
-.hero-title-wrap {
+.hero-title-wrap,
+.desc-wrap{
   position: relative;
   overflow: hidden;
   /* max-width: 65%; */

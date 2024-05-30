@@ -545,7 +545,7 @@ function initSwiper() {
   // top stories swiper (mobile)
   var topStoriesMobile = new Swiper(".swiper.top-stories-mobile", {
     // loop: true,
-    slidesPerView: 1.1,
+    slidesPerView: 1,
     spaceBetween: 5,
     centeredSlides: true,
     // speed: 1000,
@@ -560,7 +560,7 @@ function initSwiper() {
     },
     breakpoints: {
       320: {
-        slidesPerView: 1.1,
+        slidesPerView: 1,
       },
       640: {
         slidesPerView: 2,
@@ -1115,6 +1115,7 @@ function initPreloader(callback) {
   const scaleImage = document.querySelector(".preload-image.scale");
   const heroTitleWrap = document.querySelector(".hero-title-wrap");
   const logoHeroWrap = document.querySelector(".logo-hero-wrap");
+  const descWrap = document.querySelector(".desc-wrap");
   const tl = gsap.timeline();
 
   // Animate the first image to cover the whole screen
@@ -1168,16 +1169,16 @@ function initPreloader(callback) {
     "-=0.3"
   );
 
-  tl.to(
-    ".counter-wrap .logo",
-    1.0,
-    {
-      opacity: 0,
-      yPercent: -100,
-      ease: "power4.inOut",
-    },
-    "-=0.3"
-  );
+  // tl.to(
+  //   ".counter-wrap .logo",
+  //   1.0,
+  //   {
+  //     opacity: 0,
+  //     yPercent: -100,
+  //     ease: "power4.inOut",
+  //   },
+  //   "-=0.3"
+  // );
 
   tl.to(
     ".preloader-bg-wrapper",
@@ -1207,7 +1208,7 @@ function initPreloader(callback) {
   // Add the animating class to hero-title-wrap
   tl.add(() => {
     heroTitleWrap.classList.add("animating");
-  }, "-=1.6");
+  }, "-=1.0");
 
   tl.fromTo(
     heroTitleWrap,
@@ -1216,12 +1217,33 @@ function initPreloader(callback) {
       // opacity: 0,
     },
     {
-      top: "40%",
+      top: "35%",
       // opacity: 1,
       duration: 1.0,
       ease: "power4.inOut",
     },
     "-=1.6"
+  );
+
+
+ // Add the animating class to desc-wrap
+  tl.add(() => {
+    descWrap.classList.add("animating");
+  }, "-=1.0");
+
+  tl.fromTo(
+    descWrap,
+    {
+      // top: "60%",
+      opacity: 0,
+    },
+    {
+      // top: "35%",
+      opacity: 1,
+      duration: 1.2,
+      ease: "power4.inOut",
+    },
+    "-=1.59"
   );
 
   // Remove the animating class after the animation completes
@@ -1241,7 +1263,7 @@ function initPreloader(callback) {
       // opacity: 0,
     },
     {
-      top: "10%",
+      top: "20%",
       // opacity: 1,
       duration: 1.0,
       ease: "power4.inOut",
@@ -1253,16 +1275,16 @@ function initPreloader(callback) {
     // Add the animating class to hero-title-wrap
     tl.add(() => {
       heroTitleWrap.classList.add("animating");
-    }, "-=1.6");
+    }, "-=1.0");
 
     tl.fromTo(
       heroTitleWrap,
       {
-        top: "90%",
+        top: "78%",
         // opacity: 0,
       },
       {
-        top: "45%",
+        top: "24%",
         // opacity: 1,
         duration: 1.0,
         ease: "power4.inOut",
@@ -1283,11 +1305,11 @@ function initPreloader(callback) {
     tl.fromTo(
       logoHeroWrap,
       {
-        top: "80%",
+        top: "67%",
         // opacity: 0,
       },
       {
-        top: "12%",
+        top: "16%",
         // opacity: 1,
         duration: 1.0,
         ease: "power4.inOut",
@@ -1372,7 +1394,7 @@ function init() {
   // initPinScrollItems();
   initTextReveal();
   // initHighlightTextReveal();
-  initPreloader(initSwiper);
+  initPreloader();
   // initChangeText();
 }
 
