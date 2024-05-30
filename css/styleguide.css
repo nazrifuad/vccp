@@ -56,6 +56,7 @@
   --alert-failed-color: #c91313;
 
   --small-gap: 1em;
+  --medium-gap: 2.5em;
   --general-gap: min(4vw, 4em);
   --big-gap: 7em;
 
@@ -84,7 +85,7 @@
 
 @media only screen and (max-width: 767px) {
   :root {
-    --container-padding: min(2vw, 2em);
+    /* --container-padding: min(2vw, 2em); */
     --section-padding: 7vw;
     --section-padding-medium: 3vw;
     --section-padding-small: 2vw;
@@ -288,12 +289,13 @@ h3 {
 }
 
 h4 {
-  font-size: clamp(1.1em, 1.5vw, 1.5em);
+  font-size: clamp(1.3em, 1.5vw, 1.5em); 
+  /* original clamp (1.1em, 1.5vw, 1.5em) */
   line-height: 1.25;
 }
 
 h5 {
-  font-size: 1.1em;
+  font-size: 0.9em;
   line-height: 1.4;
   letter-spacing: 0.063em;
 }
@@ -330,7 +332,7 @@ h4.general-subheading {
 
 p {
   font-family: "Montserrat, Regular", sans-serif;
-  font-size: 1em;
+  font-size: 1.25em;
   line-height: 1.55;
   margin-top: 0;
   margin-bottom: 1em;
@@ -338,8 +340,9 @@ p {
 
 p.small {
   font-size: 0.8em;
-  line-height: 1.75;
+  line-height: 1.2;
   letter-spacing: 0.015em;
+  color: #7E7E7E; 
 }
 
 p.big {

@@ -31,7 +31,7 @@ function initPinPortfolioTabs() {
       "+=" +
       document.querySelector(".portfolio-desc-section .tabContent.active")
         .offsetHeight /
-        1.5,
+      1.5,
     // end: "+=100",
     // markers: true
   });
@@ -872,14 +872,14 @@ function initLoadMore() {
       if (window.matchMedia("(min-width: 1500px)").matches) {
         return 4;
       }
-      return 8;
+      return 4;
     }
 
     function loadMoreResults() {
       if (window.matchMedia("(min-width: 1500px)").matches) {
         return 8;
       }
-      return 4;
+      return 8;
     }
 
     $(".results-block").slice(0, showInitialResults()).show();
@@ -1141,7 +1141,7 @@ function initPreloader(callback) {
       // animate the image
       tl.fromTo(
         image,
-        {  scale: 0.5, opacity: 0 },
+        { scale: 0.5, opacity: 0 },
         {
 
           scale: 1,
@@ -1154,7 +1154,7 @@ function initPreloader(callback) {
     }
   });
 
-  
+
   // Continue with the rest of the preloader animations
   tl.to(
     ".preload-image.normal",
@@ -1204,8 +1204,8 @@ function initPreloader(callback) {
   //   "-=0.5"
   // );
 
-   // Add the animating class to hero-title-wrap
-   tl.add(() => {
+  // Add the animating class to hero-title-wrap
+  tl.add(() => {
     heroTitleWrap.classList.add("animating");
   }, "-=1.6");
 
