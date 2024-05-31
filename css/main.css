@@ -116,7 +116,7 @@
 
 .preloader-wrapper .subheading p,
 .hero-title-wrap .subheading p {
-  font-family: "Montserrat, Regular", sans-serif!important;
+  font-family: "Montserrat, Regular", sans-serif !important;
 }
 
 /* hero title */
@@ -630,6 +630,33 @@ html.lenis {
   transition: var(--fast-transition);
 }
 
+.sticky-scroll {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .margin-on-visible {
+    margin-top: 310px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .fixed-on-visible {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    background: white;
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .margin-on-visible {
+    margin-top: 230px;
+  }
+}
 
 .other-stories-wrapper {
   display: grid;
@@ -1295,14 +1322,14 @@ select {
   background-color: var(--white-color);
 }
 
-.cards-desc-wrap.red{
+.cards-desc-wrap.red {
   color: var(--white-color);
   background-color: var(--main-color);
 }
 
 .cards-desc-wrap.red h4,
-.cards-desc-wrap.red p{
-  color: var(--white-color)!important;
+.cards-desc-wrap.red p {
+  color: var(--white-color) !important;
 }
 
 .other-stories-card-wrap {
@@ -1347,12 +1374,13 @@ select {
   .cards-desc-wrap {
     position: relative;
     padding: 0.8em;
-    
+
   }
 
-  .swiper-slide .cards-desc-wrap{
+  .swiper-slide .cards-desc-wrap {
     height: 170px;
   }
+
   .cards-title {
     display: flex;
     align-items: center;
@@ -2133,10 +2161,11 @@ header.header-scrolled .middle-navbar svg {
   color: var(--white-color);
 }
 
-.overlay.desc-wrap.animating{
+.overlay.desc-wrap.animating {
   opacity: 1;
   transition: var(--slow-transition);
 }
+
 /* logo */
 /* hero title */
 /* hero subdesc  */
@@ -2174,76 +2203,81 @@ header.header-scrolled .middle-navbar svg {
   fill: var(--white-color);
 }
 
-.overlay.desc-wrap{
+.overlay.desc-wrap {
   height: unset;
   top: 75%;
   opacity: 0;
 }
 
-.overlay.desc-wrap.animating{
+.overlay.desc-wrap.animating {
   opacity: 1;
   transition: var(--fast-transition);
 }
 
-.overlay.desc-wrap .sub-description{
+.overlay.desc-wrap .sub-description {
   font-family: "Montserrat, Medium";
   width: 40%;
   margin: 0 auto;
 }
 
-.overlay.desc-wrap .sub-description p{
-  font-size: 1em!important;
+.overlay.desc-wrap .sub-description p {
+  font-size: 1em !important;
 }
 
-.overlay.hero-title-wrap .title .item.mobile{
+.overlay.hero-title-wrap .title .item.mobile {
   display: none;
 }
- @media only screen and (max-width: 767px) {
-    .overlay.desc-wrap .sub-description{
-      width: 100%;
-      padding: 0 11px;
-     }
-  
-     /* .overlay.desc-wrap{
+
+@media only screen and (max-width: 767px) {
+  .overlay.desc-wrap .sub-description {
+    width: 100%;
+    padding: 0 11px;
+  }
+
+  /* .overlay.desc-wrap{
       top: 70%;
     } */
-    .overlay.hero-title-wrap .title h2{
-      font-size: calc(clamp(6em, 9vw, 9em) * 0.7);
-    }
-    
-    .overlay.hero-title-wrap .title{
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    .overlay.hero-title-wrap .title .item.desktop{
-      display: none;
-    }
+  .overlay.hero-title-wrap .title h2 {
+    font-size: calc(clamp(6em, 9vw, 9em) * 0.7);
+  }
 
-    .overlay.hero-title-wrap .title .item.mobile{
-      display: block;
-    }
-    .overlay.hero-title-wrap .title h2.every{
-      text-align: right;
-      padding-right: .45em;
-    }
-    .overlay.hero-title-wrap .title h2.shade{
-      text-align: left;
-    }
+  .overlay.hero-title-wrap .title {
+    max-width: 300px;
+    margin: 0 auto;
+  }
 
-    .hero-title-wrap .inline-title{
-      padding-left: 3.5em;
-      gap: 2.5em!important;
-    }
+  .overlay.hero-title-wrap .title .item.desktop {
+    display: none;
+  }
 
-    .hero-title-wrap .inline-title h3{
-      font-size: clamp(2.45em, 3vw, 3em);
-    }
-    .overlay.hero-title-wrap .subheading{
-      max-width: 280px;
-      text-align: left;
-      margin: 0 auto;
-      padding-left: 2em;
-    }
+  .overlay.hero-title-wrap .title .item.mobile {
+    display: block;
+  }
+
+  .overlay.hero-title-wrap .title h2.every {
+    text-align: right;
+    padding-right: .45em;
+  }
+
+  .overlay.hero-title-wrap .title h2.shade {
+    text-align: left;
+  }
+
+  .hero-title-wrap .inline-title {
+    padding-left: 3.5em;
+    gap: 2.5em !important;
+  }
+
+  .hero-title-wrap .inline-title h3 {
+    font-size: clamp(2.45em, 3vw, 3em);
+  }
+
+  .overlay.hero-title-wrap .subheading {
+    max-width: 280px;
+    text-align: left;
+    margin: 0 auto;
+    padding-left: 2em;
+  }
 
 }
 
@@ -2370,9 +2404,15 @@ header.header-scrolled .middle-navbar svg {
   }
 }
 
+@media only screen and (min-width: 381px) and (max-width: 480px) {
+  .swiper.hero-swiper {
+    height: 60vh;
+  }
+}
+
 @media only screen and (max-width: 380px) {
   .swiper.hero-swiper {
-    height: 70vh;
+    height: 75vh;
   }
 }
 
@@ -2702,7 +2742,7 @@ header.header-scrolled .middle-navbar svg {
 }
 
 .hero-title-wrap,
-.desc-wrap{
+.desc-wrap {
   position: relative;
   overflow: hidden;
   /* max-width: 65%; */
@@ -2928,11 +2968,16 @@ header.header-scrolled .middle-navbar svg {
 
 main.main-content {
   position: relative;
-  overflow: hidden;
   width: 100vw;
   position: relative;
   height: 100%;
   background: var(--white-color);
+}
+
+@media only screen and (max-width: 1024px) {
+  main.main-content {
+    overflow: hidden;
+  }
 }
 
 .text-center {
@@ -3525,7 +3570,7 @@ main.main-content {
   flex-direction: column;
 }
 
-.tab-wrapper .tabContent {
+.tab-wrapper .tabContent, .tab-wrapper .tabContentRandom {
   display: none;
   animation: fadeIn 3s;
   -webkit-animation: fadeIn 3s;
