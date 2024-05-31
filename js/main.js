@@ -638,26 +638,75 @@ function initHeaderClass() {
 
 // general tab
 function initTab() {
-  function initCustomTab(tabSelector, contentSelector) {
+  function initCustomTab(tabSelector, contentSelector, randomContentSelector) {
     let tabs = document.querySelectorAll(tabSelector);
     let tabContents = document.querySelectorAll(contentSelector);
+    let tabContentRandom = document.querySelector(randomContentSelector);
+    let otherStoriesWrapper = tabContentRandom.querySelector(
+      ".other-stories-wrapper"
+    );
 
+    // Select the second to fifth tabContents
+    let selectedTabContents = Array.from(tabContents).slice(1, 5);
+
+    // Select one random cards-wrap from each restricted tabContent
+    selectedTabContents.forEach((tabContent) => {
+      let cardWraps = tabContent.querySelectorAll(".cards-wrap");
+      let randomIndex = Math.floor(Math.random() * cardWraps.length);
+      let randomCardWrap = cardWraps[randomIndex];
+
+      // Append the randomly selected card-wrap to the other-stories-wrapper in tabContentRandom
+      otherStoriesWrapper.appendChild(randomCardWrap.cloneNode(true));
+    });
+
+    // Show the tabContentRandom initially
+    tabContentRandom.classList.add("active");
+
+    // Default tab event listener
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => {
         tabContents.forEach((content) => {
           content.classList.remove("active");
         });
 
+        tabContentRandom.classList.remove("active");
+
         tabs.forEach((tab) => {
           tab.classList.remove("active");
         });
 
-        tabContents[index].classList.add("active");
+        // Show the tabContent corresponding to the clicked tab
+        let tabContent = tabContents[index];
+        tabContent.classList.add("active");
+
+        // Highlight the clicked tab
         tabs[index].classList.add("active");
       });
     });
   }
-  initCustomTab(".tabLinks", ".tab-wrapper .tabContent");
+
+  initCustomTab(
+    ".tabLinks",
+    ".tab-wrapper .tabContent",
+    ".tab-wrapper .tabContentRandom"
+  );
+}
+
+// fixed class on mobile tabs
+function initFixedTabOnScroll() {
+  window.addEventListener("scroll", function () {
+    let fixedTabs = document.getElementById("fixed-tabs");
+    let fixedBody = document.getElementById("fixed-body");
+    let rect = fixedBody.getBoundingClientRect();
+
+    if (rect.top <= 20) {
+      fixedTabs.classList.add("fixed-on-visible");
+      fixedBody.classList.add("margin-on-visible");
+    } else {
+      fixedTabs.classList.remove("fixed-on-visible");
+      fixedBody.classList.remove("margin-on-visible");
+    }
+  });
 }
 
 // accordion
@@ -1144,7 +1193,6 @@ function initPreloader(callback) {
         image,
         { scale: 0.5, opacity: 0 },
         {
-
           scale: 1,
           opacity: 1,
           duration: 0.5,
@@ -1154,7 +1202,6 @@ function initPreloader(callback) {
       );
     }
   });
-
 
   // Continue with the rest of the preloader animations
   tl.to(
@@ -1225,8 +1272,7 @@ function initPreloader(callback) {
     "-=1.6"
   );
 
-
- // Add the animating class to desc-wrap
+  // Add the animating class to desc-wrap
   tl.add(() => {
     descWrap.classList.add("animating");
   }, "-=1.0");
@@ -1386,6 +1432,7 @@ function init() {
   // initCustomTab();
   // initAccordion();
   initTab();
+  initFixedTabOnScroll();
   // initMarquee();
   initScrollingClass();
   initCustomDropdown();
