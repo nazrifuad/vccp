@@ -334,7 +334,7 @@ h4.general-subheading {
 p {
   font-family: "Montserrat, Regular", sans-serif;
   font-size: 1.25em;
-  line-height: 1.55;
+  line-height: 1.2; /*original 1.55*/
   margin-top: 0;
   margin-bottom: 1em;
   letter-spacing: -0.015em;
