@@ -133,7 +133,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: "Montserrat, Regular", sans-serif;
   color: var(--black-color);
-  line-height: 1.5;
+  line-height: 1.2;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -313,7 +313,7 @@ h3 {
   font-family: "Montserrat, ExtraBold", sans-serif;
   margin-top: 0;
   margin-bottom: 1em;
-  letter-spacing: -1px;
+  letter-spacing: -0.025em;
 }
 
 h4,
@@ -324,6 +324,7 @@ h6 {
   text-transform: inherit;
   margin-top: 0;
   margin-bottom: 1em;
+  letter-spacing: -0.015em;
 }
 
 h4.general-subheading {
@@ -336,12 +337,12 @@ p {
   line-height: 1.55;
   margin-top: 0;
   margin-bottom: 1em;
+  letter-spacing: -0.015em;
 }
 
 p.small {
   font-size: 0.8em;
   line-height: 1.2;
-  letter-spacing: 0.015em;
   color: #7E7E7E; 
 }
 
