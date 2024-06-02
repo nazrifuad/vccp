@@ -645,22 +645,54 @@ function initTab() {
     let otherStoriesWrapper = tabContentRandom.querySelector(
       ".other-stories-wrapper"
     );
+    let loadMoreButtonRandom = document.getElementById("loadMoreButtonRandom");
 
     // Select the second to fifth tabContents
     let selectedTabContents = Array.from(tabContents).slice(1, 5);
 
-    // Select one random cards-wrap from each restricted tabContent
+    // Array to store the selected card-wraps and a set to track already added card-wraps
+    let selectedCardWraps = [];
+    let addedCardWraps = new Set();
+
+    // Randomly select one card-wrap from each tabContent
     selectedTabContents.forEach((tabContent) => {
-      let cardWraps = tabContent.querySelectorAll(".cards-wrap");
+      let cardWraps = Array.from(tabContent.querySelectorAll(".cards-wrap"));
       let randomIndex = Math.floor(Math.random() * cardWraps.length);
       let randomCardWrap = cardWraps[randomIndex];
 
-      // Append the randomly selected card-wrap to the other-stories-wrapper in tabContentRandom
-      otherStoriesWrapper.appendChild(randomCardWrap.cloneNode(true));
+      // Clone and append the randomized card-wrap to other-stories-wrapper
+      let clonedCardWrap = randomCardWrap.cloneNode(true);
+      otherStoriesWrapper.appendChild(clonedCardWrap);
+      selectedCardWraps.push(clonedCardWrap);
+      addedCardWraps.add(randomCardWrap);
+    });
+
+    // Append the remaining card-wraps in order of their respective tabContents (1, 2, 3, 4)
+    selectedTabContents.forEach((tabContent) => {
+      let cardWraps = Array.from(tabContent.querySelectorAll(".cards-wrap"));
+
+      cardWraps.forEach((cardWrap) => {
+        if (!addedCardWraps.has(cardWrap)) {
+          let clonedCardWrap = cardWrap.cloneNode(true);
+          clonedCardWrap.classList.add("hidden");
+          otherStoriesWrapper.appendChild(clonedCardWrap);
+          addedCardWraps.add(cardWrap);
+        }
+      });
     });
 
     // Show the tabContentRandom initially
     tabContentRandom.classList.add("active");
+
+    // Add event listener to the load more button
+    loadMoreButtonRandom.addEventListener("click", () => {
+      let hiddenCardWraps =
+        otherStoriesWrapper.querySelectorAll(".cards-wrap.hidden");
+      hiddenCardWraps.forEach((cardWrap) => {
+        cardWrap.classList.remove("hidden");
+      });
+      loadMoreButtonRandom.style.display = "none"; // Hide the button after showing all card-wraps
+    });
 
     // Default tab event listener
     tabs.forEach((tab, index) => {

@@ -289,13 +289,13 @@ h3 {
 }
 
 h4 {
-  font-size: clamp(1.3em, 1.5vw, 1.5em); 
+  font-size: clamp(1.5em, 1.5vw, 1.5em); 
   /* original clamp (1.1em, 1.5vw, 1.5em) */
   line-height: 1.25;
 }
 
 h5 {
-  font-size: 0.9em;
+  font-size: 1.125em;
   line-height: 1.4;
   letter-spacing: 0.063em;
 }
@@ -333,8 +333,8 @@ h4.general-subheading {
 
 p {
   font-family: "Montserrat, Regular", sans-serif;
-  font-size: 1.25em;
-  line-height: 1.2; /*original 1.55*/
+  font-size: 1.125em;
+  line-height: 1.219; /*original 1.55*/
   margin-top: 0;
   margin-bottom: 1em;
   letter-spacing: -0.015em;
