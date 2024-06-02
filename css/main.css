@@ -465,7 +465,7 @@ html.lenis {
 
 .thumbnail-cards-wrap .cards-title h4 {
   color: var(--white-color);
-  font-size: calc(clamp(1.1em, 1.5vw, 1.5em) / 1.2);
+  font-size: calc(clamp(1em, 1.5vw, 1.5em) / 1.4);
 }
 
 .thumbnail-cards-wrap .cards-title {
@@ -489,7 +489,7 @@ html.lenis {
   top: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .thumbnail-cards-wrap .swiper-slide-thumb-active .item:before,
@@ -505,6 +505,20 @@ html.lenis {
 .thumbnail-cards-wrap .item:hover .overlay.bg img {
   transform: scale(1.2);
 }
+
+/* .thumbnail-cards-wrap .item:hover {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--black-color);
+  transition: var(--smooth-transition);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.5;
+} */
 
 /* display only on desktop */
 .custom-nav-wrapper.top-stories,
@@ -1389,7 +1403,7 @@ select {
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
   overflow: hidden;
-  margin-bottom: 0.5em;
+  /* margin-bottom: 0.5em; */
   font-family: "Montserrat, SemiBold", sans-serif;
   padding: 0.2em 0;
 }
@@ -1397,6 +1411,7 @@ select {
 .cards-title h5 {
   font-family: "Montserrat, SemiBold", sans-serif;
   margin-bottom: 0.5em;
+  line-height: 1.19em;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1443,6 +1458,15 @@ select {
   .cards-date-wrapper p.small {
     font-size: 0.6em !important;
   }
+
+  h5 {
+    font-size: 0.85em;
+  }
+
+  p.small {
+    font-size: 0.7em;
+  }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
