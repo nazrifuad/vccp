@@ -658,13 +658,13 @@ html.lenis {
 }
 
 @media only screen and (max-width: 768px) {
-  .margin-on-visible {
+  /* .margin-on-visible {
     margin-top: 310px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 1024px) {
-  .fixed-on-visible {
+  /* .fixed-on-visible {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -672,11 +672,11 @@ html.lenis {
     background: white;
     padding: 1.5rem;
     width: 100%;
-  }
+  } */
 
-  .margin-on-visible {
+  /* .margin-on-visible {
     margin-top: 230px;
-  }
+  } */
 }
 
 .other-stories-wrapper {
