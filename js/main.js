@@ -734,9 +734,9 @@ function initPreloader(callback) {
 
       tl.fromTo(
         image,
-        { scale: 0.5, opacity: 0 },
+        { scale: 0.3, opacity: 0 },
         {
-          scale: 1,
+          scale: 0.8,
           opacity: 1,
           duration: 0.5,
           ease: "power1.inOut",
@@ -831,7 +831,7 @@ function initPreloader(callback) {
     tl.fromTo(
       heroTitleWrap,
       {
-        top: "78%",
+        top: "58%",
       },
       {
         top: "24%",
@@ -849,7 +849,7 @@ function initPreloader(callback) {
     tl.fromTo(
       logoHeroWrap,
       {
-        top: "67%",
+        top: "47%",
       },
       {
         top: "16%",
@@ -858,6 +858,7 @@ function initPreloader(callback) {
       },
       "-=1.6"
     );
+
   }
 
 

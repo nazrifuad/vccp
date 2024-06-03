@@ -200,6 +200,11 @@
   left: 60%;
 }
 
+.no-break {
+  white-space: nowrap;
+}
+
+
 @media only screen and (max-width: 767px) {
   .counter-wrap .wrapper .logo svg {
     width: 12em;
@@ -414,11 +419,6 @@ html.lenis {
   transition: var(--g-transition);
 }
 
-.thumbnail-cards-wrap .swiper-slide-thumb-active .item .cards-publication-logo,
-.thumbnail-cards-wrap .item:hover .cards-publication-logo {
-  opacity: 1;
-}
-
 .thumbnail-cards-wrap .cards-publication-logo svg {
   max-width: 60%;
   height: 1.5em;
@@ -434,8 +434,14 @@ html.lenis {
   transition: var(--g-transition);
 }
 
+.thumbnail-cards-wrap .item:hover .cards-title,
+.thumbnail-cards-wrap .item:hover .cards-publication-logo {
+  opacity: 1;
+}
+
+// active for card title
 .thumbnail-cards-wrap .swiper-slide-thumb-active .item .cards-title,
-.thumbnail-cards-wrap .item:hover .cards-title {
+.thumbnail-cards-wrap .swiper-slide-thumb-active .item .cards-publication-logo {
   opacity: 1;
 }
 
@@ -453,7 +459,11 @@ html.lenis {
   opacity: 0;
 }
 
-.thumbnail-cards-wrap .swiper-slide-thumb-active .item:before,
+.thumbnail-cards-wrap .swiper-slide-thumb-active .item:before {
+  opacity: 0.5;
+  background: var(--main-color);
+}
+
 .thumbnail-cards-wrap .item:hover:before {
   opacity: 0.5;
 }
@@ -1313,8 +1323,6 @@ select {
     height: 11em;
   }
 
-  
-
   .cards-title {
     display: flex;
     align-items: center;
@@ -2116,7 +2124,7 @@ header.header-scrolled .middle-navbar svg {
 
 .overlay.desc-wrap {
   height: unset;
-  top: 75%;
+  top: 70%;
   opacity: 0;
 }
 
@@ -2126,7 +2134,7 @@ header.header-scrolled .middle-navbar svg {
 }
 
 .overlay.desc-wrap .sub-description {
-  width: 35%;
+  width: 45%;
   margin: 0 auto;
 }
 
@@ -2140,13 +2148,17 @@ header.header-scrolled .middle-navbar svg {
 }
 
 @media only screen and (max-width: 767px) {
+  p.big {
+    padding-left: 1em;
+  }
+
   .overlay.desc-wrap .sub-description {
-    width: 100%;
+    width: 85%;
     padding: 0 11px;
   }
 
   .overlay.hero-title-wrap .title h2 {
-    font-size: calc(clamp(6em, 9vw, 9em) * 0.7);
+    font-size: calc(clamp(5.7em, 9vw, 9em) * 0.7);
   }
 
   .overlay.hero-title-wrap .title {
@@ -2173,7 +2185,7 @@ header.header-scrolled .middle-navbar svg {
 
   .hero-title-wrap .inline-title {
     padding-left: 3.5em;
-    gap: 2.5em !important;
+    gap: 2em !important;
   }
 
   .hero-title-wrap .inline-title h3 {
