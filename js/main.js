@@ -1,5 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
+// let mm = gsap.matchMedia();
 
+// lenis scrollsmoothhhh
 function initScrollSmooth() {
   const locoScroll = new LoconativeScroll({
     el: document.querySelector("[data-scroll-container]"),
@@ -12,8 +14,10 @@ function initScrollSmooth() {
   window.onresize = locoScroll.update();
   locoScroll.on("scroll", () => ScrollTrigger.update());
 
+  // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
+  // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
   ScrollTrigger.refresh();
 }
 
@@ -30,6 +34,7 @@ function initPinPortfolioTabs() {
   });
 }
 
+// refresh on screen size
 function initWindowResize() {
   let currentWidth = $(window).width();
   $(window).on("resize", function () {
@@ -43,6 +48,7 @@ function initWindowResize() {
   });
 }
 
+// Hamburger Nav Open/Close
 function initHamburger() {
   $("[data-toggle='modal-nav-mobile']").click(function () {
     if ($("header").hasClass("nav-mobile-not-active")) {
@@ -56,6 +62,7 @@ function initHamburger() {
     closeMobileNav();
   });
 
+  // add active class to the link selection
   var activeUlMobile = document.getElementById("ul-mobile");
   var activeLink = activeUlMobile.getElementsByClassName("mobile-link");
   for (var i = 0; i < activeLink.length; i++) {
@@ -72,16 +79,19 @@ function initHamburger() {
   function openMobileNav() {
     $("header").addClass("nav-mobile-active");
     $("header").removeClass("nav-mobile-not-active");
+    // Add the modal-open class to disable scrolling
     $("body").addClass("modal-open");
   }
 
   function closeMobileNav() {
     $("header").addClass("nav-mobile-not-active");
     $("header").removeClass("nav-mobile-active");
+    // Remove the modal-open class to enable scrolling
     $("body").removeClass("modal-open");
   }
 }
 
+// added active class to menu links
 function initMenuLinks() {
   let mainUrl = window.location.href;
   $(".link-desktop li a").each(function () {
@@ -91,9 +101,11 @@ function initMenuLinks() {
   });
 }
 
+// add active class when scrolling to each section
 function initScrollingMenuLinks() {
   const navLinks = document.querySelectorAll(".link-desktop-center a");
 
+  // Function to update active link based on scroll position
   function updateActiveLink() {
     const sections = document.querySelectorAll("[data-scroll-section]");
     let current = "";
@@ -114,11 +126,14 @@ function initScrollingMenuLinks() {
     });
   }
 
+  // Listen for scroll events
   window.addEventListener("scroll", updateActiveLink);
 
+  // Initial call to set active link based on current position
   updateActiveLink();
 }
 
+// custom cursor
 function initCustomCursor() {
 
   var posXBtn = 0;
@@ -166,6 +181,7 @@ function initCustomCursor() {
     mouseY = e.clientY;
   });
 
+  // Mouse Init - Deploy the mouse position
   $("main").on("mousemove", function () {
     if ($(".custom-cursor").hasClass("cursor-init")) {
     } else {
@@ -177,6 +193,7 @@ function initCustomCursor() {
     $(".custom-cursor").removeClass("cursor-init");
   });
 
+  // Normal Hover
   $("[data-cursor-text]").on("mouseenter", function () {
     let dataText = $(this).data("cursor-text");
     let dataBackgroundColor = $(this).data("background-color");
@@ -193,6 +210,7 @@ function initCustomCursor() {
     $(".custom-cursor").removeClass("cursor-hover");
   });
 
+  // Link Hover
   $("a, .hover").on("mouseenter", function () {
     $(".custom-cursor").addClass("cursor-hover-link");
   });
@@ -200,6 +218,7 @@ function initCustomCursor() {
     $(".custom-cursor").removeClass("cursor-hover-link");
   });
 
+  // Pressed
   $("main").on("mousedown", function () {
     $(".custom-cursor").addClass("pressed");
   });
@@ -207,6 +226,7 @@ function initCustomCursor() {
     $(".custom-cursor").removeClass("pressed");
   });
 
+  // Mouse pos list image
   $(".mouse-pos-list-image-hover").on("mouseenter", function () {
     $(".mouse-pos-list-image").addClass("active");
   });
@@ -224,31 +244,10 @@ function initCustomCursor() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// swiper
 function initSwiper() {
-  var isHovered = false;
+  // hero swiper
+  var isHovered = false; // Track hover state
 
   var swiper = new Swiper(".swiper.hero-swiper", {
     slidesPerView: 1,
@@ -265,19 +264,20 @@ function initSwiper() {
 
   swiper.el.addEventListener("mouseenter", () => {
     isHovered = true;
-    swiper.autoplay.stop();
+    swiper.autoplay.stop(); // Pause autoplay on hover
   });
 
   swiper.el.addEventListener("mouseleave", () => {
     isHovered = false;
     if (!swiper.autoplay.running) {
-      swiper.autoplay.start();
+      swiper.autoplay.start(); // Resume autoplay when not on hover
     }
   });
 
-
+  // Wait for the page to load before starting autoplay/swiper
   window.addEventListener("load", initSwiper);
 
+  // top stories swiper (desktop)
   var topStoriesThumbnail = new Swiper(".swiper.top-stories-thumb", {
     loop: true,
     spaceBetween: 10,
@@ -313,6 +313,7 @@ function initSwiper() {
 
   });
 
+  // top stories swiper (mobile)
   var topStoriesMobile = new Swiper(".swiper.top-stories-mobile", {
     slidesPerView: 1,
     spaceBetween: 5,
@@ -341,17 +342,21 @@ function initSwiper() {
     },
   });
 
+  // other stories tab (mobile)
   var otherStoriesTabMobile = new Swiper(".swiper.other-stories-tab-mobile", {
     slidesPerView: 3,
     spaceBetween: 5,
   });
 }
 
+//  added class to header when scrolling
 function initHeaderClass() {
+  // when scrolling
   var WindowHeight = jQuery(window).height();
 
   var load_element = 0;
 
+  //position of element
   var scroll_position = jQuery(".header").offset().top;
 
   var screen_height = jQuery(window).height();
@@ -375,6 +380,7 @@ function initHeaderClass() {
   });
 
   function initHideNavbar() {
+    // hide and show header
     let lastScrollTop = 0;
     const navbar = document.getElementById("navbar");
 
@@ -383,8 +389,10 @@ function initHeaderClass() {
         window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop) {
+        // Scrolling down, hide the navbar
         navbar.classList.add("hidden");
       } else {
+        // Scrolling up, reveal the navbar
         navbar.classList.remove("hidden");
       }
 
@@ -394,6 +402,7 @@ function initHeaderClass() {
   initHideNavbar();
 }
 
+// general tab
 function initTab() {
   function initCustomTab(tabSelector, contentSelector, randomContentSelector) {
     let tabs = document.querySelectorAll(tabSelector);
@@ -404,22 +413,27 @@ function initTab() {
     );
     let loadMoreButtonRandom = document.getElementById("loadMoreButtonRandom");
 
+    // Select the second to fifth tabContents
     let selectedTabContents = Array.from(tabContents).slice(1, 5);
 
+    // Array to store the selected card-wraps and a set to track already added card-wraps
     let selectedCardWraps = [];
     let addedCardWraps = new Set();
 
+    // Randomly select one card-wrap from each tabContent
     selectedTabContents.forEach((tabContent) => {
       let cardWraps = Array.from(tabContent.querySelectorAll(".cards-wrap"));
       let randomIndex = Math.floor(Math.random() * cardWraps.length);
       let randomCardWrap = cardWraps[randomIndex];
 
+      // Clone and append the randomized card-wrap to other-stories-wrapper
       let clonedCardWrap = randomCardWrap.cloneNode(true);
       otherStoriesWrapper.appendChild(clonedCardWrap);
       selectedCardWraps.push(clonedCardWrap);
       addedCardWraps.add(randomCardWrap);
     });
 
+    // Append the remaining card-wraps in order of their respective tabContents (1, 2, 3, 4)
     selectedTabContents.forEach((tabContent) => {
       let cardWraps = Array.from(tabContent.querySelectorAll(".cards-wrap"));
 
@@ -433,17 +447,20 @@ function initTab() {
       });
     });
 
+    // Show the tabContentRandom initially
     tabContentRandom.classList.add("active");
 
+    // Add event listener to the load more button
     loadMoreButtonRandom.addEventListener("click", () => {
       let hiddenCardWraps =
         otherStoriesWrapper.querySelectorAll(".cards-wrap.hidden");
       hiddenCardWraps.forEach((cardWrap) => {
         cardWrap.classList.remove("hidden");
       });
-      loadMoreButtonRandom.style.display = "none";
+      loadMoreButtonRandom.style.display = "none"; // Hide the button after showing all card-wraps
     });
 
+    // Default tab event listener
     tabs.forEach((tab, index) => {
       tab.addEventListener("click", () => {
         tabContents.forEach((content) => {
@@ -456,9 +473,11 @@ function initTab() {
           tab.classList.remove("active");
         });
 
+        // Show the tabContent corresponding to the clicked tab
         let tabContent = tabContents[index];
         tabContent.classList.add("active");
 
+        // Highlight the clicked tab
         tabs[index].classList.add("active");
       });
     });
@@ -471,6 +490,7 @@ function initTab() {
   );
 }
 
+// fixed class on mobile tabs
 function initFixedTabOnScroll() {
   window.addEventListener("scroll", function () {
     let fixedTabs = document.getElementById("fixed-tabs");
@@ -527,6 +547,7 @@ function initScrollingClass() {
   ScrollTrigger.refresh();
 }
 
+// custom dropdown selection
 function initCustomDropdown() {
   $("select").each(function () {
     var $this = $(this),
@@ -585,6 +606,7 @@ function initCustomDropdown() {
   });
 }
 
+// load more function
 function initLoadMore() {
   $(document).ready(function () {
     function showInitialResults() {
@@ -612,6 +634,7 @@ function initLoadMore() {
       $(".results-block:hidden")
         .slice(0, loadMoreResults())
         .slideDown("fast", function () {
+          // Trigger an update of ScrollTrigger when new content is loaded
           ScrollTrigger.refresh();
         });
       if ($(".results-block:hidden").length === 0) {
@@ -622,22 +645,7 @@ function initLoadMore() {
   });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// this will pin the element while scrolling down -> usage on other stories tabs
 function initPinScrollItems() {
   if (window.matchMedia("(min-width: 1025px)").matches) {
     ScrollTrigger.create({
@@ -650,7 +658,9 @@ function initPinScrollItems() {
   }
 }
 
+// trigger element
 function initTextReveal() {
+  // trigger text/element on scroll
   let headers = gsap.utils.toArray(".triggerElement");
   headers.forEach((el) => {
     gsap.from(el, {
@@ -683,9 +693,11 @@ function initTextReveal() {
     });
   });
 
+  // Select all elements with the class 'triggerPartnerLogo'
   let triggerPartnerLogo = gsap.utils.toArray(".triggerPartnerLogo");
 
   triggerPartnerLogo.forEach((el) => {
+    // Create an animation for each 'triggerPartnerLogo' element
     gsap.from(el, {
       opacity: 0,
       yPercent: 50,
@@ -699,18 +711,19 @@ function initTextReveal() {
       ease: "power4.inOut",
     });
   });
-
-
 }
 
+// trigger highlight text
 function initHighlightTextReveal() {
+  // Select all elements with the class 'text-highlight'
   const highlightTextElements = document.querySelectorAll(".text-highlight");
 
+  // Create a ScrollTrigger for each 'text-highlight' element
   highlightTextElements.forEach((highlightText) => {
     gsap.to(highlightText, {
       scrollTrigger: {
         trigger: highlightText,
-        start: "top 90%",
+        start: "top 90%", // Adjust this as needed
         onEnter: () => {
           highlightText.classList.add("active");
         },
@@ -719,7 +732,9 @@ function initHighlightTextReveal() {
   });
 }
 
+// preloader
 function initPreloader(callback) {
+  // animate preload images first
   const images = document.querySelectorAll(".preload-image.normal");
   const scaleImage = document.querySelector(".preload-image.scale");
   const heroTitleWrap = document.querySelector(".hero-title-wrap");
@@ -727,11 +742,11 @@ function initPreloader(callback) {
   const descWrap = document.querySelector(".desc-wrap");
   const tl = gsap.timeline();
 
-
+  // Animate the other images to appear at random positions
   images.forEach((image, index) => {
     if (index !== 0) {
 
-
+      // animate the image
       tl.fromTo(
         image,
         { scale: 0.3, opacity: 0 },
@@ -746,6 +761,7 @@ function initPreloader(callback) {
     }
   });
 
+  // Continue with the rest of the preloader animations
   tl.to(
     ".preload-image.normal",
     1.5,
@@ -770,7 +786,7 @@ function initPreloader(callback) {
     "-=0.3"
   );
 
-
+  // Add the animating class to hero-title-wrap
   tl.add(() => {
     heroTitleWrap.classList.add("animating");
   }, "-=1.0");
@@ -788,6 +804,7 @@ function initPreloader(callback) {
     "-=1.6"
   );
 
+  // Add the animating class to desc-wrap
   tl.add(() => {
     descWrap.classList.add("animating");
   }, "-=1.0");
@@ -805,7 +822,7 @@ function initPreloader(callback) {
     "-=1.59"
   );
 
-
+  // Add the animating class to logo hero wrap
   tl.add(() => {
     logoHeroWrap.classList.add("animating");
   }, "-=1.6");
@@ -824,6 +841,7 @@ function initPreloader(callback) {
   );
 
   if (window.matchMedia("(max-width: 767px)").matches) {
+    // Add the animating class to hero-title-wrap
     tl.add(() => {
       heroTitleWrap.classList.add("animating");
     }, "-=1.0");
@@ -861,10 +879,7 @@ function initPreloader(callback) {
 
   }
 
-
-
-
-
+  // Optional: remove preloader after animations
   setTimeout(function () {
     var loadingPreload = document.getElementsByClassName("loading");
     loadingPreload[0].classList.add("removePreloader");
@@ -873,6 +888,7 @@ function initPreloader(callback) {
   setTimeout(callback, 4000);
 }
 
+//  Fire all scripts on page load
 function init() {
   initScrollSmooth();
   initWindowResize();

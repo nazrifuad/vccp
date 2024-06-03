@@ -1,3 +1,4 @@
+/* ------------------------- Preloader -------------------------------------------------- */
 .preloader-wrapper {
   position: absolute;
   top: 0;
@@ -107,13 +108,14 @@
   font-family: "Montserrat, Regular", sans-serif !important;
 }
 
+/* hero title */
 .hero-title-wrap,
 .desc-wrap {
   position: relative;
   z-index: 3;
 }
 
-
+/* logo */
 .counter-wrap .logo {
   margin-bottom: var(--general-gap);
 }
@@ -122,6 +124,7 @@
   pointer-events: none;
 }
 
+/* image random overlay */
 .overlay-img-parent.preloader {
   z-index: 5;
 }
@@ -285,6 +288,7 @@
   overflow: hidden;
 }
 
+/* loader heading */
 .counter-preload {
   align-self: center;
   margin: 0 auto;
@@ -305,6 +309,7 @@
   font-size: calc(clamp(1em, 3vw, 3em) * 1.1);
 }
 
+/* animate text preloader */
 .counter-wrap-title h2 span {
   -webkit-transition: var(--smooth-transition) all;
   -moz-transition: var(--smooth-transition) all;
@@ -342,6 +347,7 @@
   opacity: 1;
 }
 
+/* ------------------------- Lenis scroll smooth -------------------------------------------------- */
 html.lenis {
   height: auto;
 }
@@ -362,6 +368,8 @@ html.lenis {
   pointer-events: none;
 }
 
+/* ------------------------- Top Stories  -------------------------------------------------- */
+/* top */
 .top-stories .cards-publication-logo svg {
   max-width: 90%;
 }
@@ -378,6 +386,7 @@ html.lenis {
   height: auto;
 }
 
+/* bottom */
 .thumbnail-cards-wrap {
   position: relative;
   padding-top: var(--small-gap);
@@ -477,7 +486,7 @@ html.lenis {
   transform: scale(1.2);
 }
 
-
+/* display only on desktop */
 .custom-nav-wrapper.top-stories,
 .top-stories-wrapper {
   display: none;
@@ -493,6 +502,7 @@ html.lenis {
   }
 }
 
+/* top stories on mobile */
 .top-stories-wrapper-mobile {
   display: none;
 }
@@ -523,6 +533,7 @@ html.lenis {
   transition: var(--g-transition);
 }
 
+/* default */
 .top-stories-mobile .swiper-slide.cards-wrap.swiper-slide-next {
   opacity: 0.5;
   transform: scale(0.75) translateZ(0) translateX(-3em) translateY(1em);
@@ -533,12 +544,11 @@ html.lenis {
   transform: scale(0.75) translateZ(0) translateX(3em) translateY(-1em);
 }
 
+/* active */
 .top-stories-mobile .swiper-slide.cards-wrap.swiper-slide-active {
   opacity: 1;
   transform: scale(1) translateZ(0) translateX(0) translateY(0);
 }
-
-
 
 @media only screen and (max-width: 1024px) {
   .top-stories-wrapper-mobile {
@@ -555,6 +565,7 @@ html.lenis {
     padding-bottom: calc(var(--general-gap) * 1.5);
   }
 
+  /* default */
   .top-stories-mobile .swiper-slide.cards-wrap.swiper-slide-next {
     opacity: 0.5;
     transform: scale(0.85) translateZ(0) translateX(-2em) translateY(1em);
@@ -566,6 +577,7 @@ html.lenis {
   }
 }
 
+/* ------------------------- Other Stories -------------------------------------------------- */
 .other-stories-wrapper .card-link-wrapper {
   flex-direction: column;
 }
@@ -588,10 +600,12 @@ html.lenis {
   padding-right: 0;
 }
 
+/* the grid */
 .other-stories-wrapper {
   display: grid;
 }
 
+/* showing the block results */
 .results-block {
   display: none;
 }
@@ -675,6 +689,7 @@ html.lenis {
   }
 }
 
+/* ------------------------- Promo Section -------------------------------------------------- */
 .promo-wrapper {
   position: relative;
   display: flex;
@@ -729,6 +744,7 @@ html.lenis {
   }
 }
 
+/* ------------------------- Partner Section -------------------------------------------------- */
 .partner-logo-wrapper {
   position: relative;
   display: flex;
@@ -781,6 +797,7 @@ html.lenis {
   }
 }
 
+/* ------------------------- Blog Section -------------------------------------------------- */
 .blog-wrapper-d .blog-item {
   position: relative;
   --aspect-ratio: 55%;
@@ -919,6 +936,7 @@ html.lenis {
   }
 }
 
+/* ------------------------- Dropdown -------------------------------------------------- */
 .dropdown-click-wrapper {
   position: relative;
   align-items: center;
@@ -952,6 +970,7 @@ html.lenis {
   margin-bottom: 0;
 }
 
+/* dropdown styling */
 .filter-row {
   display: flex;
   align-items: center;
@@ -966,6 +985,7 @@ html.lenis {
   }
 }
 
+/** Custom Select **/
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1088,6 +1108,7 @@ select {
   }
 }
 
+/* ------------------------- Swiper -------------------------------------------------- */
 .swiper-container {
   position: relative;
   width: 100%;
@@ -1166,6 +1187,7 @@ select {
   background-color: var(--white-color);
 }
 
+/* ------------------------- Cards -------------------------------------------------- */
 .cards-container {
   position: relative;
   display: grid;
@@ -1376,6 +1398,7 @@ select {
   }
 }
 
+/* ------------------------- Header -------------------------------------------------- */
 header.header.section {
   position: fixed;
   top: 0;
@@ -2030,6 +2053,7 @@ header.header-scrolled .middle-navbar svg {
 @media only screen and (min-width: 300px) and (max-width: 1024px) and (orientation: landscape) {
 }
 
+/* ------------------------- Section -------------------------------------------------- */
 
 .section.dark-bg {
   background-color: var(--black-color);
@@ -2065,8 +2089,7 @@ header.header-scrolled .middle-navbar svg {
   }
 }
 
-
-
+/* ------------------------- Hero Section -------------------------------------------------- */
 
 .overlay.hero-title-wrap .title h2 {
   color: var(--secondary-color);
@@ -2307,6 +2330,9 @@ header.header-scrolled .middle-navbar svg {
   }
 }
 
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {} */
+
+/* ------------------------- Video Wrapper -------------------------------------------------- */
 
 .video-wrapper {
   --aspect-ratio: 48%;
@@ -2418,6 +2444,7 @@ header.header-scrolled .middle-navbar svg {
   }
 }
 
+/* ------------------------- GLightbox Popup Image -------------------------------------------------- */
 
 @media (max-width: 767px) {
   .gslide-image img {
@@ -2443,6 +2470,7 @@ header.header-scrolled .middle-navbar svg {
   }
 }
 
+/* ------------------------- General -------------------------------------------------- */
 
 .text-highlight {
   color: var(--white-color);
@@ -3021,6 +3049,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- To Top Button -------------------------------------------------- */
 
 #toTop {
   position: fixed;
@@ -3087,6 +3116,8 @@ main.main-content {
     height: 35px;
   }
 }
+
+/* ------------------------- Custom max width -------------------------------------------------- */
 
 .mw-4 {
   max-width: 4em;
@@ -3166,6 +3197,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- Custom line spacing -------------------------------------------------- */
 
 .divider-line {
   background-color: #acacac;
@@ -3198,6 +3230,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- Fonts -------------------------------------------------- */
 
 .main-font-gradient,
 .main-font-gradient :is(h1, h3) {
@@ -3263,6 +3296,8 @@ main.main-content {
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 }
+
+/* ------------------------- Accordion -------------------------------------------------- */
 
 .accordion-wrapper {
   width: 100%;
@@ -3398,6 +3433,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- Tabs -------------------------------------------------- */
 .tab-wrapper.tabs-result-wrapper {
   position: relative;
   z-index: 3;
@@ -3537,6 +3573,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- FAQs Section -------------------------------------------------- */
 .overlay-img-parent.faqs .img-overlay-wrap img {
   left: 0;
   top: -25%;
@@ -3550,6 +3587,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- Contact Section -------------------------------------------------- */
 .row.contact-row {
   justify-content: space-between;
   padding-top: var(--section-padding-small);
@@ -3626,6 +3664,7 @@ main.main-content {
   }
 }
 
+/* ------------------------- Checkbox contact -------------------------------------------------- */
 
 .checkbox-wrapper {
   width: 100%;
@@ -3720,6 +3759,8 @@ main.main-content {
     font-size: 1em !important;
   }
 }
+
+/* ------------------------- Form -------------------------------------------------- */
 
 .row.form-row-wrapper {
   z-index: 2;
@@ -3995,7 +4036,7 @@ select:-webkit-autofill:active {
 }
 
 
-
+/* ------------------------- Footer -------------------------------------------------- */
 footer.section.footer {
   background-color: var(--white-color);
   padding-top: calc(var(--section-padding) / 3);
@@ -4164,6 +4205,8 @@ footer.section.footer {
   }
 }
 
+/* ------------------------- Marquee -------------------------------------------------- */
+
 .marquee-wrapper .wrap.rollingText02 {
   transform: translateY(1.5em) rotate(2deg);
   background: linear-gradient(45deg, #ff7b01, #591842);
@@ -4250,8 +4293,7 @@ footer.section.footer {
   animation: animate-rotate 9s linear infinite;
 }
 
-
-
+/* ------------------------- Back to top button -------------------------------------------------- */
 
 #back-to-top {
   background-image: url("../assets/img/main-btn-main-fill.svg");
@@ -4292,6 +4334,7 @@ footer.section.footer {
   }
 }
 
+/* ------------------------- Animation -------------------------------------------------- */
 
 .fade-in {
   animation: fadeIn 3s;
@@ -4311,6 +4354,7 @@ footer.section.footer {
   }
 }
 
+/* ------------------------- RESPONSIVE (IPAD) -------------------------------------------------- */
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .dp-i {
@@ -4354,6 +4398,7 @@ footer.section.footer {
   }
 }
 
+/* ------------------------- RESPONSIVE (MOBILE) -------------------------------------------------- */
 
 @media (max-width: 767px) {
   .dm-none {
@@ -4389,6 +4434,7 @@ footer.section.footer {
   }
 }
 
+/* ------------------------- RESPONSIVE (GENERAL) -------------------------------------------------- */
 
 @media only screen and (min-width: 768px) and (max-width: 1075px) {
 }
@@ -4405,6 +4451,7 @@ footer.section.footer {
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 }
 
+/* ------------------------- Custom Cursor -------------------------------------------------- */
 
 .custom-cursor {
   position: fixed;

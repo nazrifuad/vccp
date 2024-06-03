@@ -1,4 +1,6 @@
+/* ------------------------- Styleguide GBS -------------------------------------------------- */
 
+/* ------------------------- Fonts -------------------------------------------------- */
 
 @font-face {
   font-family: "Montserrat, ExtraBold";
@@ -35,6 +37,7 @@
   src: url("../assets/fonts/ACaslonPro-Regular.otf") format("opentype");
 }
 
+/* ------------------------- Colors -------------------------------------------------- */
 
 :root {
   --black-color: #231f20;
@@ -89,6 +92,8 @@
 }
 
 
+/* ------------------------- Body -------------------------------------------------- */
+
 *,
 *:after,
 *:before {
@@ -97,11 +102,13 @@
   box-sizing: border-box;
 }
 
+/* Works on Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--main-color) var(--transparent-color);
 }
 
+/* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 0;
@@ -136,6 +143,7 @@ body {
   overflow-x: hidden;
 }
 
+/* preload */
 body.loading {
 	overflow: hidden;
 	height: 100vh;
@@ -167,6 +175,7 @@ body {
   position: relative;
 }
 
+/* Selection */
 ::selection {
   background-color: transparent;
   color: var(--main-color);
@@ -224,6 +233,7 @@ a,
   }
 }
 
+/* ------------------------- Typography -------------------------------------------------- */
 
 h1,
 h2,
@@ -352,6 +362,8 @@ a {
 }
 
 
+/* ------------------------- Main Elements -------------------------------------------------- */
+
 .section,
 .subsection {
   position: relative;
@@ -426,6 +438,7 @@ a {
   }
 }
 
+/* Clear floats after the columns */
 .row::after {
   content: "";
   clear: both;
@@ -454,10 +467,12 @@ a {
   align-content: center;
 }
 
+/* General - Create two equal columns that floats next to each other */
 [class*="col-"] {
   float: left;
 }
 
+/* For desktop: */
 .col-1 {
   width: 8.33%;
 }
@@ -511,18 +526,21 @@ a {
 }
 
 @media only screen and (max-width: 767px) {
+  /* For mobile phones: */
   [class*="col-"] {
     width: 100%;
     padding: 0.5em 0;
   }
 }
 
+/* ipad/tablet */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   [class*="col-"] {
     width: 100%;
   }
 }
 
+/* ------------------------- Buttons -------------------------------------------------- */
 
 .hero-btn-wrapper {
   padding-top: 1em;
@@ -564,6 +582,7 @@ path.element-03 {
   animation: polygon-stroke 6s linear infinite;
 }
 
+/* keyframes change stroke color polygon */
 @keyframes polygon-stroke {
   0% {
     opacity: 0.2;
@@ -609,12 +628,14 @@ path.element-03 {
   text-transform: capitalize;
 }
 
+/* disabled load more */
 .default-btn.secondary-btn .btn-link.disabled {
   opacity: 0.7;
   border-bottom: 1px solid var(--transparent-color);
   cursor: not-allowed;
 }
 
+/* scroll down */
 .hero-banner .scroll-down .default-btn.main-btn .btn-link {
   gap: var(--small-gap);
   flex-direction: column-reverse;
@@ -625,6 +646,7 @@ path.element-03 {
   padding: 0;
 }
 
+/* hover effect */
 .btn-text {
   position: relative;
   overflow: hidden;
