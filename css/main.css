@@ -371,7 +371,7 @@ html.lenis {
 /* ------------------------- Top Stories  -------------------------------------------------- */
 /* top */
 .top-stories .cards-publication-logo svg {
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .swiper.top-stories-thumb {
@@ -379,7 +379,7 @@ html.lenis {
 }
 
 .cards-publication-logo svg, .cards-publication-logo img {
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .top-stories .cards-desc-wrap {
@@ -1329,7 +1329,7 @@ select {
 
 .cards-title h5 {
   font-family: "Montserrat, SemiBold", sans-serif;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
   line-height: 1.19em;
 }
 
