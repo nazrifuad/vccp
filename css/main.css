@@ -402,7 +402,7 @@ html.lenis {
 }
 
 .cards-publication-logo svg, .cards-publication-logo img {
-  max-width: 70%;
+  max-width: 90%;
 }
 
 .top-stories .cards-desc-wrap {
@@ -658,13 +658,13 @@ html.lenis {
 }
 
 @media only screen and (max-width: 768px) {
-  .margin-on-visible {
+  /* .margin-on-visible {
     margin-top: 310px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 1024px) {
-  .fixed-on-visible {
+  /* .fixed-on-visible {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -672,11 +672,11 @@ html.lenis {
     background: white;
     padding: 1.5rem;
     width: 100%;
-  }
+  } */
 
-  .margin-on-visible {
+  /* .margin-on-visible {
     margin-top: 230px;
-  }
+  } */
 }
 
 .other-stories-wrapper {
@@ -1423,6 +1423,7 @@ select {
   .cards-desc-wrap {
     position: relative;
     padding: 0.8em;
+    height: 9em;
   }
 
   /* .swiper-slide .cards-desc-wrap {
@@ -1459,8 +1460,16 @@ select {
     font-size: 0.6em !important;
   }
 
+  h4 {
+    font-size: 1.125em;
+  }
+
   h5 {
-    font-size: 0.85em;
+    font-size: 0.875em;
+  }
+
+  p {
+    font-size: 1em;
   }
 
   p.small {
