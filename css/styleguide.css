@@ -144,7 +144,7 @@ body {
 }
 
 /* preload */
-body.loading {
+/* body.loading {
 	overflow: hidden;
 	height: 100vh;
 	cursor: wait;
@@ -161,7 +161,7 @@ body.loading.removePreloader {
 		overflow: auto;
 		overflow-x: hidden;
 	}
-}
+} */
 
 html {
   scroll-behavior: initial;

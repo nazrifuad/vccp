@@ -509,12 +509,6 @@ function initFixedTabOnScroll() {
 
 
 
-
-
-
-
-
-
 function initScrollingClass() {
   let changeColor = gsap.utils.toArray(
     ".btn-link.btn-nav-home a, .link-navbar-wrapper .link-desktop.link-desktop-left, header .hamburger"
@@ -903,7 +897,7 @@ function init() {
   initCustomDropdown();
   initLoadMore();
   initTextReveal();
-  initPreloader();
+  // initPreloader();
 }
 
 window.onload = () => {
